@@ -1,17 +1,27 @@
-
 // import React from "react";
+
+import { useState } from "react";
+
+import NewExpense from "./components/NewExpense/NewExpense";
 import Expenses from "./components/Expenses/Expenses";
+
 import ExpenseModel from "./models/ExpenseModel";
+import { generateGuid } from "./util/GuidUtil";
 
 function App() {
-  const expenses = [
-    new ExpenseModel("e1", new Date(2023, 2, 15), "Car Insurance", 294.67),
-    new ExpenseModel("e2", new Date(2023, 5, 10), "Ultimate book", 100),
-    new ExpenseModel("e3", new Date(2023, 8, 10), "Dog Vet", 25),
-  ];
+  const [expenses, setExpenses] = useState([
+    new ExpenseModel(generateGuid(), new Date(2023, 2, 15), "Car Insurance", 294.67),
+    new ExpenseModel(generateGuid(), new Date(2023, 5, 10), "Ultimate book", 100),
+    new ExpenseModel(generateGuid(), new Date(2023, 8, 10), "Dog Vet", 25),
+  ]);
+
+  const onAddExpense = (expense) => {
+    setExpenses(prevState => [...prevState, expense]);
+  };
+
   return (
     <div className="App">
-      <h2>Let's get started!</h2>
+      <NewExpense onAddExpense={onAddExpense}/>
       <Expenses items={expenses} />
     </div>
   );
