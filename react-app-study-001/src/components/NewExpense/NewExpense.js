@@ -18,7 +18,7 @@ function NewExpense({ onAddExpense }) {
   };
 
   return (
-    <div className='new-expense'>
+    <div className="new-expense">
       <ExpenseForm onNewExpenseSubmitted={onNewExpenseSubmitted} />
     </div>
   );

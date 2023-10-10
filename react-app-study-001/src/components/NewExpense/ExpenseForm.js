@@ -3,6 +3,7 @@ import './ExpenseForm.css';
 import { useState } from 'react';
 
 function ExpenseForm({ onNewExpenseSubmitted }) {
+  const [isAddingNewExpense, setIsAddingNewExpense] = useState(false);
   const [inputTitle, setInputTitle] = useState('');
   const [inputAmount, setInputAmount] = useState('');
   const [inputDate, setInputDate] = useState('');
@@ -11,6 +12,10 @@ function ExpenseForm({ onNewExpenseSubmitted }) {
   //   amount: '',
   //   date: '',
   // });
+
+  const onAddNewExpenseClickedHandler = () => {
+    setIsAddingNewExpense(true);
+  };
 
   const onTitleChangedHandler = ({ target }) => {
     setInputTitle(target.value);
@@ -33,13 +38,17 @@ function ExpenseForm({ onNewExpenseSubmitted }) {
     // });
   };
 
+  const onCancelClickedHandler = () => {
+    setIsAddingNewExpense(false);
+  };
+
   const onSubmitHandler = (event) => {
     event.preventDefault();
 
     const inputExpense = {
       inputDate,
       inputTitle,
-      inputAmount
+      inputAmount,
     };
 
     onNewExpenseSubmitted(inputExpense);
@@ -47,7 +56,11 @@ function ExpenseForm({ onNewExpenseSubmitted }) {
     setInputTitle('');
     setInputAmount('');
     setInputDate('');
+    setIsAddingNewExpense(false);
   };
+
+  if (!isAddingNewExpense)
+    return <button onClick={onAddNewExpenseClickedHandler}>Add new Expense</button>;
 
   return (
     <form onSubmit={onSubmitHandler}>
@@ -82,6 +95,7 @@ function ExpenseForm({ onNewExpenseSubmitted }) {
         </div>
       </div>
       <div className='new-expense__actions'>
+        <button onClick={onCancelClickedHandler}>Cancel</button>
         <button type='submit'>Add Expense</button>
       </div>
     </form>

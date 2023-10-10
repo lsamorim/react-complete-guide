@@ -5,6 +5,18 @@ class ExpenseModel {
     this.title = title;
     this.amount = amount;
   }
+
+  getDateDay = () => {
+    return this.date.toLocaleString('en-US', { day: '2-digit' });
+  }
+
+  getDateMonth = () => {
+    return this.date.toLocaleString('en-US', { month: 'long' });
+  }
+
+  getDateYear = () => {
+    return this.date.getFullYear();
+  }
 }
 
 export default ExpenseModel;
