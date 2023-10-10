@@ -1,10 +1,10 @@
-import "./Concepts.css";
+import './Concepts.css';
 
-import ConceptCard from "./ConceptCard";
+import ConceptCard from './ConceptCard';
 
 function Concepts({ items }) {
   return (
-    <ul id="concepts">
+    <ul id='concepts'>
       {items.map((item) => {
         return (
           <li key={item.title}>

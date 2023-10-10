@@ -1,9 +1,9 @@
-import "./NewExpense.css";
+import './NewExpense.css';
 
-import { generateGuid } from "../../util/GuidUtil";
-import ExpenseModel from "../../models/ExpenseModel";
+import { generateGuid } from '../../util/GuidUtil';
+import ExpenseModel from '../../models/ExpenseModel';
 
-import ExpenseForm from "./ExpenseForm";
+import ExpenseForm from './ExpenseForm';
 
 function NewExpense({ onAddExpense }) {
   const onNewExpenseSubmitted = (inputExpense) => {
@@ -18,7 +18,7 @@ function NewExpense({ onAddExpense }) {
   };
 
   return (
-    <div className="new-expense">
+    <div className='new-expense'>
       <ExpenseForm onNewExpenseSubmitted={onNewExpenseSubmitted} />
     </div>
   );

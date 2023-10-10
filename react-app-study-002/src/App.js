@@ -5,7 +5,7 @@ import eventsImage from './assets/images/events.png';
 import Header from './components/Header/Header';
 import Concepts from './components/Concepts/Concepts';
 
-import ConceptModel from "./models/ConceptModel";
+import ConceptModel from './models/ConceptModel';
 
 const concepts = [
   new ConceptModel('Components', componentsImage, 'Components let you split the UI into independent, reusable pieces, and think about each piece in isolation. Components can receive data via props, and they can render dynamic output using JSX.'),
