@@ -71,7 +71,7 @@ function InvestmentForm({ onSubmit, onReset }) {
       <p className={styles.actions}>
         <button
           type='reset'
-          className={styles.button}
+          className={styles.buttonAlt}
           onClick={onResetClickedHandler}
         >
           Reset

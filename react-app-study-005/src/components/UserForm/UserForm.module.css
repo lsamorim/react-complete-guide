@@ -1,0 +1,16 @@
+.form {
+  max-width: 40%;
+  padding: 1rem;
+  margin: 1rem auto;
+  border-radius: 4px;
+  /* background: linear-gradient(90deg, #2a0163, #6a00ff); */
+  background: white;
+}
+
+.form button {
+  border-radius: 4px;
+  padding: 5px;
+  background: rgb(192, 2, 192);
+  color: white;
+  font-weight: bold;
+}
