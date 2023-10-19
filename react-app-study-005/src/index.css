@@ -14,3 +14,7 @@ body {
   background: radial-gradient(#723bf3, #2b07db);
   background-attachment: fixed;
 }
+
+button {
+  cursor: pointer;
+}
