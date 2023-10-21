@@ -1,4 +1,5 @@
 import styles from './FormInput.module.css';
+import React from 'react';
 
 function FormInput({ inputId, label, type, value, onInputChange }) {
   return (
