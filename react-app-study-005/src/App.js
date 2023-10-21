@@ -13,7 +13,7 @@ function App() {
       {
         id: generateGuid(),
         userName: userInput['username'],
-        age: +userInput['user-age'],
+        age: userInput['user-age'],
       },
     ]);
   };
