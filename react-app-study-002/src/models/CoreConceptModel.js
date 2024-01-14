@@ -1,4 +1,4 @@
-class ConceptModel {
+class CoreConceptModel {
   constructor(title, image, description) {
     this.title = title;
     this.image = image;
@@ -6,4 +6,4 @@ class ConceptModel {
   }
 }
 
-export default ConceptModel;
+export default CoreConceptModel;
