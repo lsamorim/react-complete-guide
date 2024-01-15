@@ -13,13 +13,18 @@ body {
   color: #d9c9ee;
 }
 
+main {
+  width: 90%;
+  max-width: 50rem;
+  margin: auto;
+}
+
 main h2 {
   text-align: center;
   font-family: "Roboto Condensed", sans-serif;
   margin: 0 0 1.5rem 0;
   color: #a18aba;
 }
-
 
 #examples {
   margin: 3rem auto;
@@ -59,3 +64,17 @@ main h2 {
   color: #ebe7ef;
 }
 
+#tab-content {
+  padding: 1rem;
+  border-radius: 6px;
+  background-color: #2f1d43;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+#tab-content h3 {
+  margin: 0;
+}
+
+#tab-content code {
+  font-size: 1rem;
+}
