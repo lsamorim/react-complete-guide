@@ -4,7 +4,7 @@ import { CORE_CONCEPTS, EXAMPLES } from './data/data';
 
 import Header from './components/Header/Header';
 import CoreConceptsSection from './components/Concepts/CoreConceptsSection';
-import TabButton from './components/TabButton/TabButton';
+import TabButton from './components/UI/TabButton/TabButton';
 
 function App() {
   const [selectedTopic, setSelectedTopic] = useState('');

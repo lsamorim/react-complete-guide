@@ -1,6 +1,6 @@
 import './CoreConceptCard.css';
 
-import Card from '../UI/Card';
+import Card from '../UI/Card/Card';
 
 export default function CoreConceptCard({ concept }) {
   return (
