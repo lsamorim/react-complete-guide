@@ -1,11 +1,11 @@
 import './CoreConceptsSection.css';
 
+import Section from '../UI/Section/Section';
 import CoreConceptCard from './CoreConceptCard';
 
 export default function CoreConceptsSection({ items }) {
   return (
-    <section id='core-concepts-section'>
-      <h2>Core Concepts</h2>
+    <Section id='core-concepts-section' title='Core Concepts'>
       <ul>
         {items.map((item) => {
           return (
@@ -15,6 +15,6 @@ export default function CoreConceptsSection({ items }) {
           );
         })}
       </ul>
-    </section>
+    </Section>
   );
 }
