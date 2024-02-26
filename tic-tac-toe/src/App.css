@@ -35,27 +35,39 @@
   color: #f6e35a;
 }
 
-.player-name {
-  display: inline-block;
-  width: 10rem;
-  font-size: 1rem;
-  color: #e1dec7;
-  text-transform: uppercase;
-  margin: 0;
-  padding: 0.5rem;
-  border-radius: 4px;
-  text-overflow: ellipsis;
+#players button {
+  width: 3rem;
+  border: none;
+  background: none;
+  color: #c3ba78;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: color 0.2s;
+  padding: 0.5rem 0.25rem 0.25rem 0.25rem;
   text-align: center;
 }
 
-.player-symbol {
-  margin-left: 1rem;
-  font-size: 1rem;
-  color: #e1dec7;
+#players button:hover {
+  color: #f8ca31;
 }
 
 ol {
   list-style: none;
   margin: 0;
   padding: 0;
+}
+
+@keyframes pulse {
+  0% {
+    border-color: #f6e35a;
+    box-shadow: 0 0 0 0 rgba(246, 227, 90, 0.4);
+  }
+  50% {
+    border-color: #f8c031;
+    box-shadow: 0 0 0 0.5rem rgba(248, 165, 49, 0);
+  }
+  100% {
+    border-color: #f6e35a;
+    box-shadow: 0 0 0 0 rgba(246, 227, 90, 0);
+  }
 }
