@@ -2,12 +2,16 @@ import './PlayerInfo.css';
 
 import { useState } from 'react';
 
-export default function PlayerInfo({ initialName, symbol, activeSymbol }) {
+export default function PlayerInfo({ initialName, symbol, activeSymbol, onPlayerNameChanged }) {
   const [isEditing, setIsEditing] = useState(false);
   const [playerName, setPlayerName] = useState(initialName);
 
   function handleActionButtonClick() {
     setIsEditing((prevIsEditing) => !prevIsEditing);
+
+    if (isEditing) {
+      onPlayerNameChanged(symbol, playerName);
+    }
   }
 
   const actionButtonText = isEditing ? 'Save' : 'Edit';
