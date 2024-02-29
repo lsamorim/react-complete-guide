@@ -7,20 +7,20 @@ import InvestmentResult from './components/InvestmentResult/InvestmentResult';
 function App() {
   const [userInput, setUserInput] = useState(null);
 
-  const onSubmitHandler = (userInput) => {
+  const handleOnSubmit = (userInput) => {
     setUserInput(userInput);
   };
 
-  const onResetHandler = () => {
+  const handleOnResetClick = () => {
     setUserInput(null);
   };
 
   const yearlyData = [];
   if (userInput) {
-    let currentSavings = +userInput['current-savings'];
-    const yearlyContribution = +userInput['yearly-contribution'];
-    const expectedInterestMultiplier = +userInput['expected-return'] / 100;
-    const investmentDuration = +userInput['investment-duration'];
+    let currentSavings = userInput.currentSavings;
+    const yearlyContribution = userInput.yearlyContribution;
+    const expectedInterestMultiplier = userInput.expectedReturn / 100;
+    const investmentDuration = userInput.investmentDuration;
 
     let totalInterestGained = 0;
     let totalInvestedCapital = currentSavings;
@@ -40,19 +40,18 @@ function App() {
       });
     }
   }
-
+  console.log('render');
   return (
-    <div>
+    <>
       <Header />
-      <InvestmentForm onSubmit={onSubmitHandler} onReset={onResetHandler} />
+      <InvestmentForm onSubmit={handleOnSubmit} onResetClick={handleOnResetClick} />
       {!userInput && (
         <p style={{ textAlign: 'center' }}>
-          Please, fill out the form above to calculate the result for your{' '}
-          <b>investments.</b>
+          Please, fill out the form above to calculate the result for your <b>investments.</b>
         </p>
       )}
       {userInput && <InvestmentResult yearlyData={yearlyData} />}
-    </div>
+    </>
   );
 }
 

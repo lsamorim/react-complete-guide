@@ -2,15 +2,15 @@ import './PlayerInfo.css';
 
 import { useState } from 'react';
 
-export default function PlayerInfo({ initialName, symbol, activeSymbol, onPlayerNameChanged }) {
+export default function PlayerInfo({ initialName, symbol, activeSymbol, onPlayerNameChange }) {
   const [isEditing, setIsEditing] = useState(false);
   const [playerName, setPlayerName] = useState(initialName);
 
-  function handleActionButtonClick() {
+  function handleOnActionButtonClick() {
     setIsEditing((prevIsEditing) => !prevIsEditing);
 
     if (isEditing) {
-      onPlayerNameChanged(symbol, playerName);
+      onPlayerNameChange(symbol, playerName);
     }
   }
 
@@ -33,7 +33,7 @@ export default function PlayerInfo({ initialName, symbol, activeSymbol, onPlayer
         <span className='player-symbol'>{symbol}</span>
       </span>
 
-      <button onClick={handleActionButtonClick}>{actionButtonText}</button>
+      <button onClick={handleOnActionButtonClick}>{actionButtonText}</button>
     </li>
   );
 }

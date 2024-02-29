@@ -4,51 +4,52 @@ import styles from './InvestmentForm.module.css';
 
 import InvestmentFormInput from '../InvestmentFormInput/InvestmentFormInput';
 
-const initialUserInput = {
-  'current-savings': 100,
-  'yearly-contribution': 1000,
-  'expected-return': 10,
-  'investment-duration': 8,
+const INITIAL_USER_INPUT = {
+  currentSavings: 100,
+  yearlyContribution: 1200,
+  expectedReturn: 10,
+  investmentDuration: 10,
 };
 
-function InvestmentForm({ onSubmit, onReset }) {
-  const [userInput, setUserInput] = useState(initialUserInput);
+function InvestmentForm({ onSubmit, onResetClick }) {
+  const [userInput, setUserInput] = useState(INITIAL_USER_INPUT);
 
-  const onInputChangeHandler = (id, value) => {
+  const handleOnInputChange = (id, value) => {
     setUserInput((prevState) => {
       return {
         ...prevState,
-        [id]: value,
+        [id]: +value,
       };
     });
   };
 
-  const onSubmitHandler = (event) => {
+  const handleOnSubmit = (event) => {
     event.preventDefault();
     onSubmit(userInput);
   };
-  const onResetClickedHandler = () => {
-    setUserInput(initialUserInput);
-    onReset();
+
+  const handleOnResetClick = () => {
+    setUserInput(INITIAL_USER_INPUT);
+    onResetClick();
   };
 
   return (
-    <form className={styles.form} onSubmit={onSubmitHandler}>
+    <form className={styles.form} onSubmit={handleOnSubmit}>
       <div className={styles['input-group']}>
         <InvestmentFormInput
           id='current-savings'
           label='Current Savings ($)'
-          value={userInput['current-savings']}
+          value={userInput.currentSavings}
           onInputChange={(value) =>
-            onInputChangeHandler('current-savings', value)
+            handleOnInputChange('currentSavings', value)
           }
         />
         <InvestmentFormInput
           id='yearly-contribution'
           label='Yearly Savings ($)'
-          value={userInput['yearly-contribution']}
+          value={userInput.yearlyContribution}
           onInputChange={(value) =>
-            onInputChangeHandler('yearly-contribution', value)
+            handleOnInputChange('yearlyContribution', value)
           }
         />
       </div>
@@ -56,23 +57,23 @@ function InvestmentForm({ onSubmit, onReset }) {
         <InvestmentFormInput
           id='expected-return'
           label='Expected Interest (%, per year)'
-          value={userInput['expected-return']}
+          value={userInput.expectedReturn}
           onInputChange={(value) =>
-            onInputChangeHandler('expected-return', value)
+            handleOnInputChange('expectedReturn', value)
           }
         />
         <InvestmentFormInput
           id='investment-duration'
           label='Investment Duration (years)'
-          value={userInput['investment-duration']}
-          onInputChange={(value) => onInputChangeHandler('investment-duration', value)}
+          value={userInput.investmentDuration}
+          onInputChange={(value) => handleOnInputChange('investmentDuration', value)}
         />
       </div>
       <p className={styles.actions}>
         <button
           type='reset'
           className={styles.buttonAlt}
-          onClick={onResetClickedHandler}
+          onClick={handleOnResetClick}
         >
           Reset
         </button>

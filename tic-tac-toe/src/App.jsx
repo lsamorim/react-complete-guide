@@ -84,15 +84,13 @@ function App() {
 
   const hasDraw = !winnerResult.winner && turns.length === 9;
 
-  function handlePlayerNameChanged(symbol, name) {
+  function handleOnPlayerNameChange(symbol, name) {
     setPlayers((prevPlayers) => {
       return { ...prevPlayers, [symbol]: name };
     });
   }
 
-  function handleSquareClick(rowIndex, columnIndex) {
-    console.log(`Square clicked: ${rowIndex}, ${columnIndex}`);
-
+  function handleOnSquareClick(rowIndex, columnIndex) {
     const isSquareAlreadySelected = gameState.turns.some(
       (turn) => turn.square.rowIndex === rowIndex && turn.square.columnIndex === columnIndex
     );
@@ -111,7 +109,7 @@ function App() {
     });
   }
 
-  function handleRematchClick() {
+  function handleOnRematchClick() {
     setGameState({ activeSymbol: 'X', turns: [] });
   }
 
@@ -123,19 +121,19 @@ function App() {
             initialName={INITIAL_PLAYERS.X}
             symbol='X'
             activeSymbol={activeSymbol}
-            onPlayerNameChanged={handlePlayerNameChanged}
+            onPlayerNameChange={handleOnPlayerNameChange}
           />
           <PlayerInfo
             initialName={INITIAL_PLAYERS.O}
             symbol='O'
             activeSymbol={activeSymbol}
-            onPlayerNameChanged={handlePlayerNameChanged}
+            onPlayerNameChange={handleOnPlayerNameChange}
           />
         </ol>
         {(winnerResult.winner || hasDraw) && (
-          <GameOver winner={winnerResult.winner} onRematchClicked={handleRematchClick} />
+          <GameOver winner={winnerResult.winner} onRematchClick={handleOnRematchClick} />
         )}
-        <GameBoard board={gameBoard} onSquareClicked={handleSquareClick} />
+        <GameBoard board={gameBoard} onSquareClick={handleOnSquareClick} />
       </div>
       <TurnsLog turns={turns} />
     </main>
